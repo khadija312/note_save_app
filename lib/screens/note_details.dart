@@ -130,32 +130,46 @@ class _HomeState extends State<Home> {
                             ),
                     ));
                   },
-                  child: Icon(Icons.delete, color: Theme
-                      .of(context)
-                      .primaryColor,
+
+                  child: IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {
+                        setState(() {
+
+                        });
+                      }),
+
+                  // child: Icon(Icons.delete, color: Theme
+                  //     .of(context)
+                  //     .primaryColor,
+
 
                   ),
               ),
               //
             ),
-          ),
+
           // Divider(thickness: 1.5,color: Colors.blue,)
         ],
       ),
     );
   }
-  void _delete(BuildContext context, Note note) async {
+  void deleteNote(Note note){
 
-    int result = await databaseHelper.deleteNote(note.id!);
-    if (result != 0) {
-      _showSnackBar(context, 'Note Deleted Successfully');
-      _updateNoteList();
-    }
+
   }
-
-  void _showSnackBar(BuildContext context, String message) {
-
-    final snackBar = SnackBar(content: Text(message));
-    Scaffold.of(context).showSnackBar(snackBar);
-  }
+  // void _delete(BuildContext context, Note note) async {
+  //
+  //   int _noteList = await databaseHelper.deleteNote(note.id!);
+  //   if (_noteList != 0) {
+  //     _showSnackBar(context, 'Note Deleted Successfully');
+  //     _updateNoteList();
+  //   }
+  // }
+  //
+  // void _showSnackBar(BuildContext context, String message) {
+  //
+  //   final snackBar = SnackBar(content: Text(message));
+  //   Scaffold.of(context).showSnackBar(snackBar);
+  // }
 }
